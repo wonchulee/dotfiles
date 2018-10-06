@@ -38,6 +38,16 @@ Plug 'asciidoc/asciidoc'
 Plug 'junegunn/gv.vim'
 Plug 'morhetz/gruvbox'
 Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-commentary'
+Plug 'junegunn/vim-journal'
+
+" Lang
+Plug 'rust-lang/rust.vim'
+Plug 'honza/dockerfile.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'derekwyatt/vim-scala'
+Plug 'honza/dockerfile.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -58,17 +68,17 @@ set ruler
 set showcmd
 set incsearch
 set autowrite
+set clipboard=unnamed
 
 " Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
-set shiftround
-set expandtab
+ set tabstop=2
+ set shiftwidth=2
+ set shiftround
+ set expandtab
 
 " Make it obvious where 82 characters is
 set textwidth=82
 set colorcolumn=+1
-
 
 "git-gutter update time
 set updatetime=100
