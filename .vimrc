@@ -67,7 +67,6 @@ set history=50
 set ruler
 set showcmd
 set incsearch
-set autowrite
 set clipboard=unnamed
 
 " Softtabs, 2 spaces
