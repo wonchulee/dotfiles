@@ -71,10 +71,10 @@ set autowrite
 set clipboard=unnamed
 
 " Softtabs, 2 spaces
- set tabstop=2
- set shiftwidth=2
- set shiftround
- set expandtab
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
 
 " Make it obvious where 82 characters is
 set textwidth=82
