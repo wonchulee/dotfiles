@@ -48,6 +48,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'derekwyatt/vim-scala'
 Plug 'honza/dockerfile.vim'
+Plug 'rhysd/vim-clang-format'
+Plug 'elzr/vim-json'
 
 " Initialize plugin system
 call plug#end()
