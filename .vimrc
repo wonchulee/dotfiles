@@ -93,3 +93,14 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
 nmap <F2> :TagbarToggle<CR>
+
+"during insert, kj escapes, `^ is so that the cursor doesn't move                                       
+inoremap kj <Esc>`^                                                                                     
+"during insert, lkj escapes and saves                                                                   
+inoremap lkj <Esc>`^:w<CR>                                                                              
+"during insert, lkj escapes and saves and QUITS                                                         
+inoremap ;lkj <Esc>:wq<CR>                                                                              
+                                                                                                        
+"replace tab to other character                                                                         
+set list                                                                                                
+set listchars=tab:!·,trail:· 
