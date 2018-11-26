@@ -29,7 +29,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'valloric/youcompleteme'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
@@ -50,6 +49,18 @@ Plug 'derekwyatt/vim-scala'
 Plug 'honza/dockerfile.vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'elzr/vim-json'
+
+" Plug 'valloric/youcompleteme'
+" deoplete
+let g:deoplete#enable_at_startup = 1
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 
 " Initialize plugin system
 call plug#end()
@@ -94,13 +105,14 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 nmap <F2> :TagbarToggle<CR>
 
-"during insert, kj escapes, `^ is so that the cursor doesn't move                                       
-inoremap kj <Esc>`^                                                                                     
-"during insert, lkj escapes and saves                                                                   
-inoremap lkj <Esc>`^:w<CR>                                                                              
-"during insert, lkj escapes and saves and QUITS                                                         
-inoremap ;lkj <Esc>:wq<CR>                                                                              
-                                                                                                        
-"replace tab to other character                                                                         
-set list                                                                                                
-set listchars=tab:!·,trail:· 
+"during insert, kj escapes, `^ is so that the cursor doesn't move
+inoremap kj <Esc>`^
+"during insert, lkj escapes and saves
+inoremap lkj <Esc>`^:w<CR>
+"during insert, lkj escapes and saves and QUITS
+inoremap ;lkj <Esc>:wq<CR>
+
+"replace tab to other character
+set list
+set listchars=tab:!·,trail:·
+
