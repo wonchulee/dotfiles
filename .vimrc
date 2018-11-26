@@ -65,7 +65,7 @@ let g:deoplete#enable_at_startup = 1
 "gtutentags plugin
 Plug 'ludovicchabant/vim-gutentags'
 set statusline+=%{gutentags#statusline()}
-let g:gutentags_project_root = ['Makefile', 'meson.build', 'CMakeLists.txt']
+let g:gutentags_project_root = ['Makefile', 'meson.build', 'CMakeLists.txt', 'Makefile.am']
 
 " Initialize plugin system
 call plug#end()
