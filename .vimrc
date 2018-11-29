@@ -62,10 +62,9 @@ Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
 
-"gtutentags plugin
-Plug 'ludovicchabant/vim-gutentags'
-set statusline+=%{gutentags#statusline()}
-let g:gutentags_project_root = ['Makefile', 'meson.build', 'CMakeLists.txt', 'Makefile.am']
+" tag plugin
+Plug 'jsfaint/gen_tags.vim'
+let g:gen_tags#gtags_default_map = 1
 
 " Initialize plugin system
 call plug#end()
