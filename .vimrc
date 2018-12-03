@@ -50,17 +50,8 @@ Plug 'honza/dockerfile.vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'elzr/vim-json'
 
-" Plug 'valloric/youcompleteme'
-" deoplete
-let g:deoplete#enable_at_startup = 1
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
+" Auto completion
+Plug 'valloric/youcompleteme'
 
 " tag plugin
 Plug 'jsfaint/gen_tags.vim'
