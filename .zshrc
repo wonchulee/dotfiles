@@ -66,6 +66,7 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   tmuxinator
+  fzf
 )
 
 source $ZSH/oh-my-zsh.sh
