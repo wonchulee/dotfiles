@@ -1,2 +1,4 @@
 DEFAULT
     mode char
+    toggle crlf
+    set binary
