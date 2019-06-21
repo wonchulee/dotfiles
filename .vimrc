@@ -52,6 +52,8 @@ Plug 'elzr/vim-json'
 
 " Auto completion
 Plug 'valloric/youcompleteme'
+Plug 'SirVer/ultisnips'
+Plug 'xavierd/clang_complete'
 
 " tag plugin
 Plug 'jsfaint/gen_tags.vim'
@@ -93,12 +95,12 @@ set updatetime=100
 let g:indent_guides_enable_on_vim_startup = 1
 
 " NerdTree configuration
-map <F1> :NERDTreeToggle<CR>
+map <S-t> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
-nmap <F2> :TagbarToggle<CR>
+nmap <A-t> :TagbarToggle<CR>
 
 "during insert, kj escapes, `^ is so that the cursor doesn't move
 inoremap kj <Esc>`^
@@ -111,3 +113,28 @@ inoremap ;lkj <Esc>:wq<CR>
 set list
 set listchars=tab:!·,trail:·
 
+"Youcompleteme
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_key_list_select_completion = ['', '']
+let g:ycm_key_list_previous_completion = ['', '']
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_warning_symbol = '>*'
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
+
+nnoremap <C-g> :YcmCompleter GoTo
+" nnoremap gg :YcmCompleter GoToImprecise
+nnoremap <C-d> :YcmCompleter GoToDeclaration
+" nnoremap t :YcmCompleter GetType
+" nnoremap p :YcmCompleter GetParent
+
+"ultisnips
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips']
+let g:UltiSnipsSnippetDirectories = ['UltiSnips']
+
+"clang_complete
+let g:clang_library_path='/usr/lib64/llvm6.0/lib/libclang.so.6.0'
