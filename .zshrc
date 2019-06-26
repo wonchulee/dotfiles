@@ -106,6 +106,8 @@ alias vim="vimx"
 alias ninja="ninja-build"
 alias g="grep -rn"
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH=$PYENV_ROOT/bin:$PATH:~/.local/bin
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -113,6 +115,14 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 eval "$(pyenv virtualenv-init -)"
 eval "$(direnv hook zsh)"
+
+# direnv
+show_virtual_env() {
+  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
+    echo "($(basename $VIRTUAL_ENV))"
+  fi
+}
+PS1='$(show_virtual_env)'$PS1
 
 # codi
 # # Codi
