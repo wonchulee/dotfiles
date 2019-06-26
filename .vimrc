@@ -59,6 +59,11 @@ Plug 'xavierd/clang_complete'
 Plug 'jsfaint/gen_tags.vim'
 let g:gen_tags#gtags_default_map = 1
 
+Plug 'direnv/direnv.vim'
+Plug 'nvie/vim-flake8'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'metakirby5/codi.vim'
+
 " Initialize plugin system
 call plug#end()
 
@@ -139,5 +144,5 @@ let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 "clang_complete
 let g:clang_library_path='/usr/lib64/llvm6.0/lib/libclang.so.6.0'
 
-" python run
-nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+" run python
+nnoremap <buffer> <F9> :w<CR>:!clear;python %:p<cr>
