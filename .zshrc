@@ -105,7 +105,6 @@ alias vi="vimx"
 alias vim="vimx"
 alias ninja="ninja-build"
 alias g="grep -rn"
-source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
