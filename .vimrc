@@ -52,7 +52,6 @@ Plug 'elzr/vim-json'
 
 " Auto completion
 Plug 'valloric/youcompleteme'
-Plug 'SirVer/ultisnips'
 Plug 'xavierd/clang_complete'
 
 " tag plugin
@@ -63,6 +62,9 @@ Plug 'direnv/direnv.vim'
 Plug 'nvie/vim-flake8'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'metakirby5/codi.vim'
+
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
 
 " Initialize plugin system
 call plug#end()
