@@ -84,7 +84,7 @@ set history=50
 set ruler
 set showcmd
 set incsearch
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -147,4 +147,4 @@ let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 let g:clang_library_path='/usr/lib64/llvm6.0/lib/libclang.so.6.0'
 
 " run python
-nnoremap <buffer> <F9> :w<CR>:!clear;python %:p<cr>
+nnoremap <buffer> <F9> :w<CR>:!clear;python3 %:p<cr>
