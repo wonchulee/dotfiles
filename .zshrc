@@ -137,3 +137,7 @@ codi() {
     hi NonText ctermfg=0 |\
     Codi $syntax" "$@"
 }
+
+# fzf ripgrep
+export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
+
