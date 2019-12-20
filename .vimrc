@@ -41,14 +41,8 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/vim-journal'
 
 " Lang
-Plug 'rust-lang/rust.vim'
-Plug 'honza/dockerfile.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'derekwyatt/vim-scala'
-Plug 'honza/dockerfile.vim'
 Plug 'rhysd/vim-clang-format'
-Plug 'elzr/vim-json'
+Plug 'sheerun/vim-polyglot'
 
 " Auto completion
 Plug 'valloric/youcompleteme'
