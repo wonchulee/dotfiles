@@ -35,12 +35,14 @@ Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'asciidoc/asciidoc'
 Plug 'junegunn/gv.vim'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar' replaced by vista
+Plug 'liuchengxu/vista.vim'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/vim-journal'
 
 " colorscheme
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 
 " Lang
 Plug 'rhysd/vim-clang-format'
@@ -67,8 +69,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Initialize plugin system
 call plug#end()
 
-colorscheme gruvbox
-set background=dark
+set termguicolors
+colorscheme nord
 
 set wildmenu
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -102,12 +104,12 @@ set updatetime=100
 let g:indent_guides_enable_on_vim_startup = 1
 
 " NerdTree configuration
-map <S-t> :NERDTreeToggle<CR>
+map <C-\> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
-nmap <A-t> :TagbarToggle<CR>
+nmap <F8> :Vista!!<CR>
 
 "during insert, kj escapes, `^ is so that the cursor doesn't move
 inoremap kj <Esc>`^
