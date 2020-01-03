@@ -52,6 +52,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'valloric/youcompleteme'
 Plug 'xavierd/clang_complete'
 
+" lint
+Plug 'dense-analysis/ale'
+
 " tag plugin
 Plug 'ludovicchabant/vim-gutentags'
 
