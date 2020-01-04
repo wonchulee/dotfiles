@@ -80,9 +80,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='vimx'
 else
-  export EDITOR='mvim'
+  export EDITOR='vimx'
 fi
 
 # Compilation flags
@@ -141,3 +141,10 @@ codi() {
 # fzf ripgrep
 export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 
+# npm setup
+NPM_PACKAGES="${HOME}/.npm-packages"
+export PATH="$PATH:$NPM_PACKAGES/bin"
+
+# Preserve MANPATH if you already defined it somewhere in your config.
+# Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
+export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"

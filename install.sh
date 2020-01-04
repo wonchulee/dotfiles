@@ -22,4 +22,9 @@ rm $HOME/.zshrc && ln -s `pwd`/.zshrc $HOME/.zshrc
 # TODO:
 
 # vim
+# coc settings
+ln -s `pwd`/coc/coc-settings.json $HOME/.vim/coc-settings.json
+# coc web
 vim -c 'CocInstall -sync coc-tsserver coc-json coc-html coc-css|q'
+# coc rust
+vim -c 'CocInstall -sync coc-rls |q'
