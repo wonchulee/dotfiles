@@ -148,3 +148,7 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 # Preserve MANPATH if you already defined it somewhere in your config.
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+
+# FIXME: temporal fix for spacing problem with ibus-hangul(mutter)
+# https://github.com/ibus/ibus/issues/2156
+export GTK_IM_MODULE=wayland
