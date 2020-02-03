@@ -38,8 +38,6 @@ Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/vim-journal'
 
-" LSP symbols/tags viewer
-Plug 'liuchengxu/vista.vim'
 
 " colorscheme
 Plug 'morhetz/gruvbox'
@@ -49,8 +47,11 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'sheerun/vim-polyglot'
 
+" LSP symbols/tags viewer
+Plug 'liuchengxu/vista.vim'
 " tag plugin
 Plug 'ludovicchabant/vim-gutentags'
+let g:gutentags_ctags_exclude = ['oe-workdir', 'oe-logs', 'build']
 
 " python
 Plug 'direnv/direnv.vim'

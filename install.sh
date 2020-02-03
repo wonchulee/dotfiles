@@ -18,13 +18,18 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 rm $HOME/.zshrc && ln -s `pwd`/.zshrc $HOME/.zshrc
 
-#tmux
-# TODO:
+# tmux
+## tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # vim
-# coc settings
+## coc settings
 ln -s `pwd`/coc/coc-settings.json $HOME/.vim/coc-settings.json
-# coc web
+## coc web
 vim -c 'CocInstall -sync coc-tsserver coc-json coc-html coc-css|q'
-# coc rust
+## coc rust
 vim -c 'CocInstall -sync coc-rls |q'
+
+# nord gnome terminal theme
+git clone https://github.com/arcticicestudio/nord-gnome-terminal.git ~/
+~/nord-gnome-terminal/src/nord.sh
