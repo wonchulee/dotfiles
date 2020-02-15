@@ -33,3 +33,6 @@ vim -c 'CocInstall -sync coc-rls |q'
 # nord gnome terminal theme
 git clone https://github.com/arcticicestudio/nord-gnome-terminal.git ~/
 ~/nord-gnome-terminal/src/nord.sh
+
+mkdir -p ~/.config/alacritty
+ln -s `pwd`/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
