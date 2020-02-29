@@ -153,3 +153,12 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 # FIXME: temporal fix for spacing problem with ibus-hangul(mutter)
 # https://github.com/ibus/ibus/issues/2156
 export GTK_IM_MODULE=ibus
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# cargo
+export PATH=$PATH:$HOME/.cargo/bin
+source $HOME/.cargo/env
+
+export PATH=~/.local/bin:$PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib64:~/.local/lib
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/.local/lib64/pkgconfig:~/.local/lib/pkgconfig
