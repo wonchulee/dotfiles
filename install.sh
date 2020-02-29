@@ -36,3 +36,7 @@ git clone https://github.com/arcticicestudio/nord-gnome-terminal.git ~/
 
 mkdir -p ~/.config/alacritty
 ln -s `pwd`/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+
+# environment variable for applications
+mkdir -p ~/.config/environment.d/
+ln -s `pwd`/.config/environment.d/envvars.conf ~/.config/environment.d/envvars.conf

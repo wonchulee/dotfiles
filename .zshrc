@@ -152,4 +152,4 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
 # FIXME: temporal fix for spacing problem with ibus-hangul(mutter)
 # https://github.com/ibus/ibus/issues/2156
-export GTK_IM_MODULE=wayland
+export GTK_IM_MODULE=ibus
