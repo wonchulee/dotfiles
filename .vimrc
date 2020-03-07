@@ -49,18 +49,18 @@ Plug 'rhysd/vim-clang-format'
 Plug 'sheerun/vim-polyglot'
 
 " LSP symbols/tags viewer
-Plug 'liuchengxu/vista.vim'
+" Plug 'liuchengxu/vista.vim'
 " tag plugin
-Plug 'ludovicchabant/vim-gutentags'
-let g:gutentags_ctags_exclude = ['oe-workdir', 'oe-logs', 'build']
+" Plug 'ludovicchabant/vim-gutentags'
+" let g:gutentags_ctags_exclude = ['oe-workdir', 'oe-logs', 'build']
 
 " python
-Plug 'direnv/direnv.vim'
-Plug 'nvie/vim-flake8'
-Plug 'vim-scripts/indentpython.vim'
+" Plug 'direnv/direnv.vim'
+" Plug 'nvie/vim-flake8'
+" Plug 'vim-scripts/indentpython.vim'
 
-Plug 'mattn/webapi-vim'
-Plug 'mattn/gist-vim'
+" Plug 'mattn/webapi-vim'
+" Plug 'mattn/gist-vim'
 
 " intellisense engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

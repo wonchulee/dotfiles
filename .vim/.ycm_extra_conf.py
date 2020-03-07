@@ -16,7 +16,8 @@ C_BASE_FLAGS = [
         '-DNDEBUG',
         '-std=c11',
         '-I/usr/lib/',
-        '-I/usr/include/'
+        '-I/usr/include/',
+        '-I/home/wonchul/.local/include/'
         ]
 
 CPP_BASE_FLAGS = [
@@ -30,7 +31,8 @@ CPP_BASE_FLAGS = [
         '-std=c++1z',
         '-xc++',
         '-I/usr/lib/',
-        '-I/usr/include/'
+        '-I/usr/include/',
+        '-I/home/wonchul/.local/include/'
         ]
 
 C_SOURCE_EXTENSIONS = [
