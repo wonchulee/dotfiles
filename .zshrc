@@ -105,6 +105,7 @@ alias vi="vimx"
 alias vim="vimx"
 alias ninja="ninja-build"
 alias g="grep -rn"
+alias cat="bat"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -153,7 +154,6 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 # FIXME: temporal fix for spacing problem with ibus-hangul(mutter)
 # https://github.com/ibus/ibus/issues/2156
 export GTK_IM_MODULE=ibus
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # cargo
 export PATH=$PATH:$HOME/.cargo/bin
