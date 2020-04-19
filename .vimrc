@@ -264,3 +264,6 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 set backupdir=/tmp//
 set directory=/tmp//
 set undodir=/tmp//
+
+" airline theme
+let g:airline_theme='silver'
