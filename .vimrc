@@ -38,8 +38,6 @@ Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/vim-journal'
 
-Plug 'ycm-core/YouCompleteMe'
-
 " colorscheme
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
@@ -266,21 +264,3 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 set backupdir=/tmp//
 set directory=/tmp//
 set undodir=/tmp//
-
-"Youcompleteme
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_key_list_select_completion = ['', '']
-let g:ycm_key_list_previous_completion = ['', '']
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_warning_symbol = '>*'
-let g:ycm_server_python_interpreter = '/usr/bin/python3'
-
-nnoremap <C-g> :YcmCompleter GoTo
-" nnoremap gg :YcmCompleter GoToImprecise
-nnoremap <C-d> :YcmCompleter GoToDeclaration
-" nnoremap t :YcmCompleter GetType
-" nnoremap p :YcmCompleter GetParent
-
-"clang_complete
-let g:clang_library_path='/usr/lib64/libclang.so.9'
