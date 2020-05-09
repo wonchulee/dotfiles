@@ -109,8 +109,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
-nmap <F8> :Vista!!<CR>
-
 "during insert, kj escapes, `^ is so that the cursor doesn't move
 inoremap kj <Esc>`^
 "during insert, lkj escapes and saves
@@ -258,6 +256,9 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+"eslint shortcut
+nnoremap <Leader>e :<C-u>CocCommand eslint.executeAutofix<CR>
 
 " <<<--- Coc settings
 
