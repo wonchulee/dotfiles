@@ -20,8 +20,8 @@
 (package-initialize)
 
 (use-package org-roam
-      :hook
-      (after-init . org-roam-mode)
+      ;:hook
+      ;(after-init . org-roam-mode)
       :custom
       (org-roam-directory "/home/wonchul/org")
       :bind (:map org-roam-mode-map
@@ -47,13 +47,14 @@
    (quote
     ("76c5b2592c62f6b48923c00f97f74bcb7ddb741618283bdb2be35f3c0e1030e3" default)))
  '(fci-rule-color "#383838")
+ '(git-gutter:update-interval 1)
  '(nrepl-message-colors
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(org-roam-directory "/home/wonchul/org")
  '(package-selected-packages
    (quote
-    (lsp-mode company smartparens git-gutter magit ivy js2-mode evil zenburn-theme use-package org-roam)))
+    (vue-mode lsp-mode company smartparens git-gutter magit ivy js2-mode evil zenburn-theme use-package org-roam)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
@@ -76,8 +77,7 @@
      (320 . "#8CD0D3")
      (340 . "#94BFF3")
      (360 . "#DC8CC3"))))
- '(vc-annotate-very-old-color "#DC8CC3")
- '(git-gutter:update-interval 1))
+ '(vc-annotate-very-old-color "#DC8CC3"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -98,11 +98,14 @@
 
 ;; org config
 (require 'org)
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 (setq org-todo-keywords
   '((sequence "TODO" "WIP" "DONE")))
+
+(add-hook 'org-mode-hook  'org-roam-mode)
 
 ; ls-mode
 ;; if you want to change prefix for lsp-mode keybindings.
@@ -148,6 +151,8 @@
 
 ;;;; enable emmet
 (add-hook 'web-mode-hook  'emmet-mode)
+
+; end web dev
 
 ; set line number
 (when (version<= "26.0.50" emacs-version )
