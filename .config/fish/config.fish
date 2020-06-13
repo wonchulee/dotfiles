@@ -4,6 +4,8 @@ alias vim='vimx'
 alias cat='bat'
 alias grep='rg'
 
+alias ec='emacsclient -c -nw'
+
 set -gx NPM_PACKAGES_BIN $HOME/.npm-packages/bin
 set -gx PATH $HOME/.local/bin $NPM_PACKAGES_BIN $PATH
 set -gx MANPATH $MANPATH $NPM_PACKAGES/share/man
