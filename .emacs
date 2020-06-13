@@ -20,8 +20,8 @@
 (package-initialize)
 
 (use-package org-roam
-      ;:hook
-      ;(after-init . org-roam-mode)
+      :hook
+      (after-init . org-roam-mode)
       :custom
       (org-roam-directory "/home/wonchul/org")
       :bind (:map org-roam-mode-map
@@ -112,7 +112,8 @@
 (setq lsp-keymap-prefix "\C-c C-l")
 
 (require 'lsp-mode)
-(add-hook 'XXX-mode-hook #'lsp)
+(add-hook 'lsp-mode-hook #'smartparens-mode)
+(add-to-list 'auto-mode-alist '("\\.[ch](c|\+\+|pp|xx)?$" . lsp-mode))
 
 ; korean input
 (setq default-input-method "korean-hangul")
@@ -152,8 +153,19 @@
 ;;;; enable emmet
 (add-hook 'web-mode-hook  'emmet-mode)
 
+;;;; enable smartparens
+(add-hook 'web-mode-hook #'smartparens-mode)
+
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2))
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
 ; end web dev
 
 ; set line number
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
+
+; disable indenting tab
+(setq-default indent-tabs-mode nil)
