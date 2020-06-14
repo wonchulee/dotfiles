@@ -122,11 +122,16 @@
 ; web dev configuration
 ;; set eslint - https://gist.github.com/CodyReichert/9dbc8bd2a104780b64891d8736682cea
 (add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx?$" . web-mode))
 (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
 
 (defun web-mode-init-hook ()
   "Hooks for Web mode.  Adjust indent."
-  (setq web-mode-markup-indent-offset 4))
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  ;(setq web-mode-css-indent-offset 2)
+)
 
 (add-hook 'web-mode-hook  'web-mode-init-hook)
 
@@ -140,7 +145,7 @@
 (flycheck-add-mode 'javascript-eslint 'web-mode)
 ;;;; Enable flycheck globally
 (add-hook 'after-init-hook #'global-flycheck-mode)
-;;;; set add-node-modules-apth
+;;;; set add-node-modules-path
 (add-hook 'flycheck-mode-hook 'add-node-modules-path)
 
 ;;;; enable prettier
@@ -155,11 +160,6 @@
 
 ;;;; enable smartparens
 (add-hook 'web-mode-hook #'smartparens-mode)
-
-(defun my-web-mode-hook ()
-  "Hooks for Web mode."
-  (setq web-mode-markup-indent-offset 2))
-(add-hook 'web-mode-hook  'my-web-mode-hook)
 
 ; end web dev
 
