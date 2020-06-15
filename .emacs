@@ -19,6 +19,7 @@
                                  )
 (package-initialize)
 
+(require 'use-package)
 (use-package org-roam
       :hook
       (after-init . org-roam-mode)
