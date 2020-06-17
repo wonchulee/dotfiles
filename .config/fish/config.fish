@@ -3,6 +3,7 @@ alias vim='vimx'
 
 alias cat='bat'
 alias grep='rg'
+alias ls='exa'
 
 alias ec='emacsclient -c -nw'
 
@@ -16,3 +17,5 @@ set -gx PKG_CONFIG_PATH ~/.local/lib64/pkgconfig ~/.local/lib/pkgconfig $PKG_CON
 set -gx EDITOR vim
 
 set -gx GTK_IM_MODULE ibus
+
+starship init fish | source
