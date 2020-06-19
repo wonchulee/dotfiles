@@ -90,8 +90,8 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Fira Mono" :foundry "CTDB" :slant normal :weight normal :height 113 :width normal)))))
 
-(load-theme 'zenburn t)
-;(load-theme 'nord t)
+;(load-theme 'zenburn t)
+(load-theme 'nord t)
 
 (require 'evil)
 (evil-mode 1)
