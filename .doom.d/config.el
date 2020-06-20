@@ -71,6 +71,16 @@
 ;; set default input-method hangul
 (setq default-input-method "korean-hangul")
 
+;; webmode indent config
+(defun web-mode-init-hook ()
+  "Hooks for Web mode.  Adjust indent."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+)
+(add-hook 'web-mode-hook  'web-mode-init-hook)
+
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
@@ -102,6 +112,10 @@
  '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#b6e63e"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#525254"))
  '(objed-cursor-color "#e74c3c")
+ '(org-journal-date-format "%A, %d %B %Y" t)
+ '(org-journal-date-prefix "#+TITLE: " t)
+ '(org-journal-dir "~/org/" t)
+ '(org-journal-file-format "%Y-%m-%d.org" t)
  '(package-selected-packages (quote (org-roam)))
  '(pdf-view-midnight-colors (cons "#d6d6d4" "#1c1e1f"))
  '(rustic-ansi-faces
