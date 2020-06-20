@@ -8,7 +8,7 @@ alias ls='exa'
 alias ec='emacsclient -c -nw'
 
 set -gx NPM_PACKAGES_BIN $HOME/.npm-packages/bin
-set -gx PATH $HOME/.local/bin $NPM_PACKAGES_BIN $PATH
+set -gx PATH $HOME/.local/bin $NPM_PACKAGES_BIN $PATH ~/.emacs.d/bin
 set -gx MANPATH $MANPATH $NPM_PACKAGES/share/man
 
 set -gx LD_LIBRARY_PATH ~/.local/lib64 ~/.local/lib $LD_LIBRARY_PATH
