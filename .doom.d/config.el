@@ -89,6 +89,10 @@
                             (enable-minor-mode
                              '("\\.jsx?\\'" . prettier-js-mode))))
 
+(after! exec-path
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
