@@ -93,6 +93,9 @@
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
+(require' feature-mode)
+(add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
