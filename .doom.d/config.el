@@ -96,6 +96,10 @@
 (require' feature-mode)
 (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 
+(after! rustic
+  (setq rustic-lsp-server 'rust-analyzer)
+  (setq lsp-rust-analyzer-server-command '("/home/wonchul/.local/bin/rust-analyzer")))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
