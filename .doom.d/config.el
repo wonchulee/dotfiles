@@ -94,7 +94,8 @@
     (exec-path-from-shell-initialize)))
 
 (require' feature-mode)
-(add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
+(after! feature-mode
+  (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode)))
 
 (after! rustic
   (setq rustic-lsp-server 'rust-analyzer)
