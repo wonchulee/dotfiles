@@ -101,6 +101,12 @@
   (setq rustic-lsp-server 'rust-analyzer)
   (setq lsp-rust-analyzer-server-command '("/home/wonchul/.local/bin/rust-analyzer")))
 
+(after! key-chord
+  (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+  (general-define-key :keymaps 'evil-insert-state-map
+                    (general-chord "jk") 'evil-normal-state
+                    (general-chord "kj") 'evil-normal-state))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
