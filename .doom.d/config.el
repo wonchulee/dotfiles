@@ -97,9 +97,15 @@
 (after! feature-mode
   (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode)))
 
+(require' meson-mode)
+(after! meson-mode
+  (add-to-list 'auto-mode-alist '("\meson.build$" . meson-mode)))
+
 (after! rustic
   (setq rustic-lsp-server 'rust-analyzer)
-  (setq lsp-rust-analyzer-server-command '("/home/wonchul/.local/bin/rust-analyzer")))
+  (setq lsp-rust-analyzer-server-command '("/home/wonchul/.local/bin/rust-analyzer"))
+  (setq rustic-format-trigger 'on-compile)
+)
 
 (after! key-chord
   (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
