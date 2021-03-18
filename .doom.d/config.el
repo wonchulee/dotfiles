@@ -25,7 +25,27 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-palenight)
+;; (setq doom-theme 'doom-palenight)
+(setq doom-theme 'doom-vibrant)
+
+(custom-set-faces!
+  '(doom-modeline-buffer-modified :foreground "orange"))
+(defun doom-modeline-conditional-buffer-encoding ()
+"We expect the encoding to be LF UTF-8, so only show the modeline when this is not the case"
+(setq-local doom-modeline-buffer-encoding
+            (unless (and (memq (plist-get (coding-system-plist buffer-file-coding-system) :category)
+                               '(coding-category-undecided coding-category-utf-8))
+                         (not (memq (coding-system-eol-type buffer-file-coding-system) '(1 2))))
+              t)))
+
+(add-hook 'after-change-major-mode-hook #'doom-modeline-conditional-buffer-encoding)
+
+(setq display-line-numbers-type 'relative)
+(setq doom-fallback-buffer-name "► Doom"
+            +doom-dashboard-name "► Doom")
+
+;; Fix a bug when inserting mode for org documents
+(custom-set-faces! '(doom-modeline-evil-insert-state :weight bold :foreground "#339CDB"))
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -104,7 +124,7 @@
 (after! rustic
   (setq rustic-lsp-server 'rust-analyzer)
   (setq lsp-rust-analyzer-server-command '("/home/wonchul/.local/bin/rust-analyzer"))
-  (setq rustic-format-trigger 'on-compile)
+  (setq rustic-format-trigger 'on-save)
 )
 
 (after! key-chord
@@ -112,6 +132,20 @@
   (general-define-key :keymaps 'evil-insert-state-map
                     (general-chord "jk") 'evil-normal-state
                     (general-chord "kj") 'evil-normal-state))
+
+;; company
+(after! company
+  (setq company-idel-deplay 0.5
+        company-minimum-prefix-length 2)
+  (setq company-show-numbers t)
+
+  (require 'company-tabnine)
+  (add-to-list 'company-backends #'company-tabnine)
+  (add-hook 'evil-normal-state-entry-hook #'company-abort))
+
+
+(setq-default history-length 1000)
+(setq-default prescient-history-length 1000)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
