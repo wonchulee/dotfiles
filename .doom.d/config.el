@@ -47,6 +47,11 @@
 ;; Fix a bug when inserting mode for org documents
 (custom-set-faces! '(doom-modeline-evil-insert-state :weight bold :foreground "#339CDB"))
 
+(setq doom-font (font-spec :family "IBM Plex Mono" :size 24)
+      doom-big-font (font-spec :family "IBM Plex Mono" :size 36)
+      doom-variable-pitch-font (font-spec :family "IBM Plex Sans KR" :size 24)
+      doom-serif-font (font-spec :family "IBM Plex Mono" :weight 'light))
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
