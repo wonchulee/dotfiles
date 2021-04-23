@@ -1,0 +1,75 @@
+(defcfg
+  input (device-file "/dev/input/by-path/pci-0000:00:14.0-usb-0:8.1:1.0-event-kbd")
+  output (uinput-sink "KMonad_sm")
+  allow-cmd true
+  )
+
+(defsrc
+    esc  f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12   prnt  slck  pause
+    grv  1     2     3     4     5     6     7     8     9     0     -     =     bspc  ins   home  pgup
+    tab  q     w     e     r     t     y     u     i     o     p     [     ]     \     del   end   pgdn
+    caps a     s     d     f     g     h     j     k     l     ;     '     ret
+    lsft z     x     c     v     b     n     m     ,     .     /     rsft              up
+    lctl lmet  lalt              spc               ralt  cmp   rctl              left  down  rght
+)
+
+(deflayer default
+    esc  f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12   prnt  slck  pause
+    grv  1     2     3     4     5     6     7     8     9     0     -     =     bspc  ins   home  pgup
+    tab  @qEsc w     e     r     @tTab y     u     i     o     p     [     ]     \     del   end   pgdn
+    caps @meta @alts @ctld @sftf @gRet @hBsp @sftj @ctlk @altl @met; '     ret
+    lsft @zSpe x     c     v     b     @nnum m     ,     .     /     rsft              up
+    lctl lmet  lalt              spc               ralt  cmp   rctl              left  down  rght
+)
+
+(deflayer num
+    _    _     _     _     _     _     _     _     _     _     _     _     _     _     _     _
+    _    _     _     _     _     _     _     _     _     _     _     _     _     _     _     _     _
+    _    @1    @2    @3    @4    @5    _     _     _     _     _     _     _     _     _     _     _
+    _    @6    @7    @8    @9    @0    _     _     _     _     _     _     _
+    _    _     _     _     _     _     _     _     _     _     _     _                 _
+    _    _     _                 _                 _     _     _                 _     _     _
+)
+
+(deflayer spe
+    _    _     _     _     _     _     _     _     _     _     _     _     _     _     _     _
+    _    _     _     _     _     _     _     _     _     _     _     _     _     _     _     _     _
+    _    _     _     _     _     _     !     @     #     $     %     _     _     _     _     _     _
+    _    _     _     _     _     _     \(    ^     &     *     \)    _     _
+    _    _     _     _     _     _     -     =     _     _     _     _                 _
+    _    _     _                 _                 _     _     _                 _     _     _
+)
+
+(defalias
+    num (layer-toggle num)
+    spe (layer-toggle spe)
+
+    qEsc (tap-hold-next-release 200 q esc)
+    tTab (tap-hold-next-release 200 t tab)
+
+    meta (tap-hold-next-release 200 a lmet)
+    alts (tap-hold-next-release 200 s lalt)
+    ctld (tap-hold-next-release 200 d lctl)
+    sftf (tap-hold-next-release 200 f lsft)
+    gRet (tap-hold-next-release 200 g ret)
+    hBsp (tap-hold-next-release 200 h bspc)
+
+    sftj (tap-hold-next-release 200 j rsft)
+    ctlk (tap-hold-next-release 200 k rctl)
+    altl (tap-hold-next-release 200 l lalt)
+    met; (tap-hold-next-release 200 ; rmet)
+
+    zSpe (tap-hold-next-release 200 z @spe)
+    nnum (tap-hold-next-release 200 n @num)
+
+    1 (tap-hold-next-release 200 1 1)
+    2 (tap-hold-next-release 200 2 2)
+    3 (tap-hold-next-release 200 3 3)
+    4 (tap-hold-next-release 200 4 4)
+    5 (tap-hold-next-release 200 5 5)
+    6 (tap-hold-next-release 200 6 6)
+    7 (tap-hold-next-release 200 7 7)
+    8 (tap-hold-next-release 200 8 8)
+    9 (tap-hold-next-release 200 9 9)
+    0 (tap-hold-next-release 200 0 0)
+)
