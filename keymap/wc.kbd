@@ -1,6 +1,6 @@
 (defcfg
   input (device-file "/dev/input/by-path/pci-0000:00:14.0-usb-0:8.1:1.0-event-kbd")
-  output (uinput-sink "KMonad_wc_tenkeyless")
+  output (uinput-sink "KMonad_wc_tkless")
   allow-cmd true
   )
 
@@ -10,16 +10,17 @@
     tab  q     w     e     r     t     y     u     i     o     p     [     ]     \     del   end   pgdn
     caps a     s     d     f     g     h     j     k     l     ;     '     ret
     lsft z     x     c     v     b     n     m     ,     .     /     rsft              up
-    lctl lmet  lalt              spc               ralt  cmp   menu  rctl        left  down  rght
+    lctl lmet  lalt              spc               ralt  rmet  cmp   rctl        left  down  rght
 )
 
+;; FIXME: rmet key is not working
 (deflayer default
     _    _     _     _     _     _     _     _     _     _     _     _     _     _     _     _
     _    _     _     _     _     _     _     _     _     _     _     _     _     _     _     _     _
     _    q     w     e     r     t     y     u     i     o     p     [     ]     \     _     _     _
     _    @meta @alts @ctld @sftf g     h     @sftj @ctlk @altl @met; '     _
     _    z     x     c     v     b     n     m     ,     .     /     _                 _
-    _    tab   esc               @sNav             @rSym @bNum @dFn  _           _     _     _
+    _    tab   esc               @sNav             @rSym _     @bNum @dFn        _     _     _
 )
 
 (deflayer sym
@@ -28,7 +29,7 @@
     _    {     &     *     \(    }     _     _     _     _     _     _     _     _     _     _     _
     _    :     $     %     ^     +     _     _     _     _     _     _     _
     _    ~     !     @     #     |     _     _     _     _     _     _                 _
-    _    \(    \)                _                 _     _     _     _           _     _     _
+    _    \(    \)                \_                _     _     _     _           _     _     _
 )
 
 (deflayer num
@@ -52,7 +53,7 @@
 (deflayer nav
     _    _     _     _     _     _     _     _     _     _     _     _     _     _     _     _
     _    _     _     _     _     _     _     _     _     _     _     _     _     _     _     _     _
-    _    _     _     _     _     _     _     _     _     _     _     _     _     _     _     _     _
+    _    _     _     _     _     _     _     @pst  @cpy  @cut  _     _     _     _     _     _     _
     _    _     _     _     _     _     left  down  up    rght  caps  _     _
     _    _     _     _     _     _     ins   home  pgdn  pgup  end   _                 _
     _    _     _                 _                 ret   del   bspc  _           _     _     _
@@ -78,4 +79,8 @@
     rSym (tap-hold-next-release 200 ret @sym)
     bNum (tap-hold-next-release 200 bspc @num)
     dFn (tap-hold-next-release 200 del @fn)
+
+    cpy C-c
+    pst C-v
+    cut C-x
 )
