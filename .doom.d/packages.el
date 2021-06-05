@@ -53,6 +53,7 @@
 (package! prettier-js)
 (package! feature-mode)
 (package! company-tabnine)
+(package! meson-mode)
 
 (package! lexic :recipe (:local-repo "list/lexic"))
 (package! graphviz-dot-mode :pin "3642a0a5f4...")
