@@ -39,8 +39,9 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/vim-journal'
 
 " colorscheme
-Plug 'morhetz/gruvbox'
-Plug 'arcticicestudio/nord-vim'
+" Plug 'morhetz/gruvbox'
+" Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim'
 
 " Lang
 Plug 'rhysd/vim-clang-format'
@@ -67,7 +68,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " set termguicolors
-colorscheme nord
+colorscheme dracula
 let g:nord_cursor_line_number_background = 1
 let g:nord_uniform_diff_background = 1
 let g:nord_italic = 1
