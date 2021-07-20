@@ -152,6 +152,8 @@
 (setq-default history-length 1000)
 (setq-default prescient-history-length 1000)
 
+(setq-default show-trailing-whitespace t)
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
