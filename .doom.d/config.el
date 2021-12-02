@@ -229,17 +229,6 @@
                     (general-chord "jk") 'evil-normal-state
                     (general-chord "kj") 'evil-normal-state))
 
-;; company
-(after! company
-  (setq company-idel-deplay 0.5
-        company-minimum-prefix-length 2)
-  (setq company-show-numbers t)
-
-  (require 'company-tabnine)
-  (add-to-list 'company-backends #'company-tabnine)
-  (add-hook 'evil-normal-state-entry-hook #'company-abort))
-
-
 (setq-default history-length 1000)
 (setq-default prescient-history-length 1000)
 
