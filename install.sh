@@ -1,9 +1,9 @@
 #!/bin/sh
 
 ln -s `pwd`/.vimrc $HOME/.vimrc
-ln -s `pwd`/.tmux.conf.local $HOME/.tmux.conf.local
+ln -s `pwd`/.tmux.conf $HOME/.tmux.conf
 ln -s `pwd`/.config/fish/config.fish $HOME/.config/fish/config.fish
-ls -s `pwd`/.doom.d $HOME/.doom.d
+ln -s `pwd`/.doom.d $HOME/.doom.d
 
 mkdir -p ~/.local/share/applications
 ln -s `pwd`/.local/share/applications/alacritty.desktop ~/.local/share/applications/alacritty.desktop
@@ -12,9 +12,6 @@ ln -s `pwd`/.local/share/applications/alacritty.desktop ~/.local/share/applicati
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-## coc web
-vim -c 'CocInstall -sync coc-tsserver coc-json coc-html coc-css|q'
-
 # tmux
 ## tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -22,10 +19,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # alacritty config
 mkdir -p ~/.config/alacritty
 ln -s `pwd`/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-
-# nord gnome terminal theme
-git clone https://github.com/arcticicestudio/nord-gnome-terminal.git ~/
-~/nord-gnome-terminal/src/nord.sh
 
 # environment variable for applications
 # mkdir -p ~/.config/environment.d/
