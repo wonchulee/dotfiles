@@ -1,6 +1,3 @@
-alias vi='vimx'
-alias vim='vimx'
-
 alias cat='bat'
 alias grep='rg'
 alias ls='exa'
