@@ -57,3 +57,6 @@
 
 (package! lexic :recipe (:local-repo "list/lexic"))
 (package! graphviz-dot-mode :pin "3642a0a5f4...")
+
+(package! dap-mode)
+(package! exec-path-from-shell)
