@@ -60,3 +60,5 @@
 
 (package! dap-mode)
 (package! exec-path-from-shell)
+
+(package! racer :disable t)
