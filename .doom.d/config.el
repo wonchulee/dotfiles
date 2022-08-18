@@ -150,9 +150,13 @@
   ;; (setq lsp-signature-auto-activate nil)
 
   ;; comment to disable rustfmt on save
-  (setq rustic-format-on-save t)
+  (setq rustic-format-on-save t))
 
-  (add-hook 'rustic-mode-hook #'lsp!))
+(defun rustic-mode-auto-save-hook ()
+  "Enable auto-saving in rustic-mode buffers."
+  (when buffer-file-name
+    (setq-local compilation-ask-about-save nil)))
+(add-hook 'rustic-mode-hook 'rustic-mode-auto-save-hook)
 
 (use-package lsp-mode
   :ensure
@@ -180,22 +184,7 @@
   (lsp-ui-sideline-show-hover t)
   (lsp-ui-doc-enable nil))
 
-(use-package company
-  :ensure
-  :custom
-  (company-idle-delay 0.5) ;; how long to wait until popup
-  ;; (company-begin-commands nil) ;; uncomment to disable popup
-  :bind
-  (:map company-active-map
-    ("C-n". company-select-next)
-    ("C-p". company-select-previous)
-    ("M-<". company-select-first)
-    ("M->". company-select-last)))
-
 ;; TODO: add yasnippet
-
-(use-package flycheck :ensure)
-
 
 (use-package exec-path-from-shell
   :ensure
