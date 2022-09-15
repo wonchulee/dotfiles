@@ -28,13 +28,17 @@ ln -s `pwd`/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # install rust pacakges
-cargo install exa ripgrep aracritty
+cargo install exa ripgrep
 
 # install starship rs
 curl -fsSL https://starship.rs/install.sh | bash
 
 # git
 git config --global core.editor vim
+
+# fish shell
+brew install fish
+echo `which fish` | sudo tee -a /etc/shells
 
 # install doom emacs
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
