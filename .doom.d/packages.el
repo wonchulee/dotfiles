@@ -62,3 +62,5 @@
 (package! exec-path-from-shell)
 
 (package! racer :disable t)
+
+(package! terraform-mode)
