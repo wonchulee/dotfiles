@@ -43,6 +43,7 @@ echo `which fish` | sudo tee -a /etc/shells
 # install doom emacs
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
+brew install shellcheck shfmt markdown jq aspell
 
 # install golang
 brew install go

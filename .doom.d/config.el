@@ -98,6 +98,8 @@
 
 ;; set default input-method hangul
 (setq default-input-method "korean-hangul")
+(cond ((eq system-type 'darwin)
+       (define-key evil-insert-state-map (kbd "C-p") 'toggle-input-method)))
 
 ;; webmode indent config
 (defun web-mode-init-hook ()
