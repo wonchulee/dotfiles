@@ -50,10 +50,12 @@
 ;; Fix a bug when inserting mode for org documents
 (custom-set-faces! '(doom-modeline-evil-insert-state :weight bold :foreground "#339CDB"))
 
-(setq doom-font (font-spec :family "IBM Plex Mono" :size 24)
-      doom-big-font (font-spec :family "IBM Plex Mono" :size 36)
-      doom-variable-pitch-font (font-spec :family "IBM Plex Sans KR" :size 24)
-      doom-serif-font (font-spec :family "IBM Plex Mono" :weight 'light))
+(setq doom-font (font-spec :family "IBM Plex Mono" :size 18)
+      doom-variable-pitch-font (font-spec :family "IBM Plex Sans KR" :size 18)
+      doom-big-font (font-spec :family "IBM Plex Mono" :size 22))
+
+(add-hook 'org-mode-hook 'variable-pitch-mode)
+(add-hook 'org-mode-hook (display-line-numbers-mode 0))
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -91,6 +93,21 @@
     #+ROAM_KEY: ${ref}
     - source :: ${ref}"
                :unnarrowed t))))
+
+(use-package! websocket
+    :after org-roam)
+
+(use-package! org-roam-ui
+    :after org-roam ;; or :after org
+;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+;;         a hookable mode anymore, you're advised to pick something yourself
+;;         if you don't care about startup time, use
+;;  :hook (after-init . org-roam-ui-mode)
+    :config
+    (setq org-roam-ui-sync-theme t
+          org-roam-ui-follow t
+          org-roam-ui-update-on-save t
+          org-roam-ui-open-on-start t))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -152,13 +169,17 @@
   ;; (setq lsp-signature-auto-activate nil)
 
   ;; comment to disable rustfmt on save
-  (setq rustic-format-on-save t))
+  (setq rustic-format-on-save t)
+  (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
 
-(defun rustic-mode-auto-save-hook ()
-  "Enable auto-saving in rustic-mode buffers."
+(defun rk/rustic-mode-hook ()
+  ;; so that run C-c C-c C-r works without having to confirm, but don't try to
+  ;; save rust buffers that are not file visiting. Once
+  ;; https://github.com/brotzeit/rustic/issues/253 has been resolved this should
+  ;; no longer be necessary.
   (when buffer-file-name
-    (setq-local compilation-ask-about-save nil)))
-(add-hook 'rustic-mode-hook 'rustic-mode-auto-save-hook)
+    (setq-local buffer-save-without-query t))
+  (add-hook 'before-save-hook 'lsp-format-buffer nil t))
 
 (use-package lsp-mode
   :ensure
@@ -223,6 +244,11 @@
 (setq-default prescient-history-length 1000)
 
 (setq-default show-trailing-whitespace t)
+
+;; mermaid
+(use-package ob-mermaid
+  :config
+  (setq ob-mermaid-cli-path "/Users/wonchul/.volta/bin/mmdc"))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

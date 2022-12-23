@@ -52,7 +52,6 @@
 (package! key-chord)
 (package! prettier-js)
 (package! feature-mode)
-(package! company-tabnine)
 (package! meson-mode)
 
 (package! lexic :recipe (:local-repo "list/lexic"))
@@ -64,3 +63,8 @@
 (package! racer :disable t)
 
 (package! terraform-mode)
+
+(unpin! org-roam)
+(package! org-roam-ui)
+
+(package! ob-mermaid)
