@@ -54,8 +54,7 @@
       doom-variable-pitch-font (font-spec :family "IBM Plex Sans KR" :size 18)
       doom-big-font (font-spec :family "IBM Plex Mono" :size 22))
 
-(add-hook 'org-mode-hook 'variable-pitch-mode)
-(add-hook 'org-mode-hook (display-line-numbers-mode 0))
+(add-hook 'org-mode-hook 'mixed-pitch-mode)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
