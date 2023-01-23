@@ -25,11 +25,18 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-;; (setq doom-theme 'doom-palenight)
-(if (display-graphic-p)
-       (setq doom-theme 'doom-vibrant)
-         (setq doom-theme 'doom-palenight))
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-vibrant t)
 
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
 
 (custom-set-faces!
   '(doom-modeline-buffer-modified :foreground "orange"))
