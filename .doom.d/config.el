@@ -100,21 +100,6 @@
     - source :: ${ref}"
                :unnarrowed t))))
 
-(use-package! websocket
-    :after org-roam)
-
-(use-package! org-roam-ui
-    :after org-roam ;; or :after org
-;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
-;;         a hookable mode anymore, you're advised to pick something yourself
-;;         if you don't care about startup time, use
-;;  :hook (after-init . org-roam-ui-mode)
-    :config
-    (setq org-roam-ui-sync-theme t
-          org-roam-ui-follow t
-          org-roam-ui-update-on-save t
-          org-roam-ui-open-on-start t))
-
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
@@ -250,11 +235,6 @@
 (setq-default prescient-history-length 1000)
 
 (setq-default show-trailing-whitespace t)
-
-;; mermaid
-(use-package ob-mermaid
-  :config
-  (setq ob-mermaid-cli-path "/Users/wonchul/.volta/bin/mmdc"))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

@@ -63,8 +63,3 @@
 (package! racer :disable t)
 
 (package! terraform-mode)
-
-(unpin! org-roam)
-(package! org-roam-ui)
-
-(package! ob-mermaid)
