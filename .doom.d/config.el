@@ -41,18 +41,18 @@
 (custom-set-faces!
   '(doom-modeline-buffer-modified :foreground "orange"))
 (defun doom-modeline-conditional-buffer-encoding ()
-"We expect the encoding to be LF UTF-8, so only show the modeline when this is not the case"
-(setq-local doom-modeline-buffer-encoding
-            (unless (and (memq (plist-get (coding-system-plist buffer-file-coding-system) :category)
-                               '(coding-category-undecided coding-category-utf-8))
-                         (not (memq (coding-system-eol-type buffer-file-coding-system) '(1 2))))
-              t)))
+  "We expect the encoding to be LF UTF-8, so only show the modeline when this is not the case"
+  (setq-local doom-modeline-buffer-encoding
+              (unless (and (memq (plist-get (coding-system-plist buffer-file-coding-system) :category)
+                                 '(coding-category-undecided coding-category-utf-8))
+                           (not (memq (coding-system-eol-type buffer-file-coding-system) '(1 2))))
+                t)))
 
 (add-hook 'after-change-major-mode-hook #'doom-modeline-conditional-buffer-encoding)
 
 (setq display-line-numbers-type 'relative)
 (setq doom-fallback-buffer-name "► Doom"
-            +doom-dashboard-name "► Doom")
+      +doom-dashboard-name "► Doom")
 
 ;; Fix a bug when inserting mode for org documents
 (custom-set-faces! '(doom-modeline-evil-insert-state :weight bold :foreground "#339CDB"))
@@ -70,35 +70,35 @@
 
 ;; roam setting refers to https://www.ianjones.us/2020-05-05-doom-emacs
 (after! org-roam
-        (map! :leader
-            :prefix "n"
-            :desc "org-roam" "l" #'org-roam
-            :desc "org-roam-insert" "i" #'org-roam-insert
-            :desc "org-roam-switch-to-buffer" "b" #'org-roam-switch-to-buffer
-            :desc "org-roam-find-file" "f" #'org-roam-find-file
-            :desc "org-roam-show-graph" "g" #'org-roam-show-graph
-            :desc "org-roam-insert" "i" #'org-roam-insert
-            :desc "org-roam-capture" "c" #'org-roam-capture))
+  (map! :leader
+        :prefix "n"
+        :desc "org-roam" "l" #'org-roam
+        :desc "org-roam-insert" "i" #'org-roam-insert
+        :desc "org-roam-switch-to-buffer" "b" #'org-roam-switch-to-buffer
+        :desc "org-roam-find-file" "f" #'org-roam-find-file
+        :desc "org-roam-show-graph" "g" #'org-roam-show-graph
+        :desc "org-roam-insert" "i" #'org-roam-insert
+        :desc "org-roam-capture" "c" #'org-roam-capture))
 
 (use-package org-journal
-      :bind
-      ("C-c n j" . org-journal-new-entry)
-      :custom
-      (org-journal-dir "~/org/")
-      (org-journal-date-prefix "#+TITLE: ")
-      (org-journal-file-format "%Y-%m-%d.org")
-      (org-journal-date-format "%A, %d %B %Y"))
-    (setq org-journal-enable-agenda-integration t)
+  :bind
+  ("C-c n j" . org-journal-new-entry)
+  :custom
+  (org-journal-dir "~/org/")
+  (org-journal-date-prefix "#+TITLE: ")
+  (org-journal-file-format "%Y-%m-%d.org")
+  (org-journal-date-format "%A, %d %B %Y"))
+(setq org-journal-enable-agenda-integration t)
 
 (after! org-roam
-      (setq org-roam-ref-capture-templates
-            '(("r" "ref" plain (function org-roam-capture--get-point)
-               "%?"
-               :file-name "websites/${slug}"
-               :head "#+TITLE: ${title}
+  (setq org-roam-ref-capture-templates
+        '(("r" "ref" plain (function org-roam-capture--get-point)
+           "%?"
+           :file-name "websites/${slug}"
+           :head "#+TITLE: ${title}
     #+ROAM_KEY: ${ref}
     - source :: ${ref}"
-               :unnarrowed t))))
+           :unnarrowed t))))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -115,17 +115,17 @@
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
-)
+  )
 (add-hook 'web-mode-hook  'web-mode-init-hook)
 
 (require' prettier-js)
 (after! prettier-js
-         (map! :leader
-             :prefix "m"
-             :desc "prettier-js" "p" #'prettier-js))
+  (map! :leader
+        :prefix "m"
+        :desc "prettier-js" "p" #'prettier-js))
 (add-hook 'js2-mode-hook #'(lambda ()
-                            (enable-minor-mode
-                             '("\\.jsx?\\'" . prettier-js-mode))))
+                             (enable-minor-mode
+                              '("\\.jsx?\\'" . prettier-js-mode))))
 
 (after! exec-path
   (when (memq window-system '(mac ns x))
@@ -190,6 +190,17 @@
   :config
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
+;; golang config
+(after! lsp-mode
+  (setq  lsp-go-analyses '((fieldalignment . t)
+                           (nilness . t)
+                           (shadow . t)
+                           (unusedparams . t)
+                           (unusedwrite . t)
+                           (useany . t)
+                           (unusedvariable . t)))
+  )
+
 (use-package lsp-ui
   :ensure
   :commands lsp-ui-mode
@@ -228,8 +239,8 @@
 (after! key-chord
   (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
   (general-define-key :keymaps 'evil-insert-state-map
-                    (general-chord "jk") 'evil-normal-state
-                    (general-chord "kj") 'evil-normal-state))
+                      (general-chord "jk") 'evil-normal-state
+                      (general-chord "kj") 'evil-normal-state))
 
 (setq-default history-length 1000)
 (setq-default prescient-history-length 1000)
