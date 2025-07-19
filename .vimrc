@@ -12,11 +12,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " Multiple Plug commands can be written in a single line using | separators
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-" nerdtree
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'jistr/vim-nerdtree-tabs'
+"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -40,10 +36,6 @@ Plug 'junegunn/vim-journal'
 
 " colorscheme
 Plug 'dracula/vim'
-
-" Lang
-Plug 'rhysd/vim-clang-format'
-Plug 'sheerun/vim-polyglot'
 
 " LSP symbols/tags viewer
 " Plug 'liuchengxu/vista.vim'
@@ -99,12 +91,6 @@ set updatetime=100
 
 let g:indent_guides_enable_on_vim_startup = 1
 
-" NerdTree configuration
-map <C-\> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-
 "during insert, kj escapes, `^ is so that the cursor doesn't move
 inoremap kj <Esc>`^
 "during insert, lkj escapes and saves
@@ -116,13 +102,13 @@ inoremap ;lkj <Esc>:wq<CR>
 set list
 set listchars=tab:!·,trail:·
 
-"ultisnips
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-let g:UltiSnipsEditSplit="vertical"
-" let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips']
-let g:UltiSnipsSnippetDirectories = ['UltiSnips']
+""ultisnips
+"let g:UltiSnipsExpandTrigger="<Tab>"
+"let g:UltiSnipsJumpForwardTrigger="<Tab>"
+"let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+"let g:UltiSnipsEditSplit="vertical"
+"" let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips']
+"let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 
 " run python
 nnoremap <buffer> <F9> :w<CR>:!clear;python3 %:p<cr>
