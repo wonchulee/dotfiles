@@ -1,8 +1,9 @@
 alias cat='bat'
-alias grep='rg'
 alias ls='exa'
-
 alias ec='emacsclient -c -nw'
+# alias vi='nvim'
+alias tf='terraform'
+alias k='kubectl'
 
 set -gx NPM_PACKAGES_BIN $HOME/.npm-packages/bin
 set -gx PATH $HOME/.local/bin $NPM_PACKAGES_BIN $PATH ~/.emacs.d/bin $HOME/.cargo/bin
