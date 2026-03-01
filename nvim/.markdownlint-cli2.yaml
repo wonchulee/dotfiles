@@ -1,0 +1,9 @@
+# Global markdownlint-cli2 default configuration
+# Project-level .markdownlint-cli2.yaml will override this automatically.
+config:
+  # 한국어 문서에서 80자 줄 길이 제한은 비현실적
+  MD013: false
+  # Hugo frontmatter title + 본문 H1 공존 허용
+  MD025: false
+  # 테이블 파이프 간격 스타일 강제 비활성화
+  MD060: false
