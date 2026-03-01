@@ -33,3 +33,6 @@ setup_packages() {
     log_info "fish already in /etc/shells"
   fi
 }
+
+# shellcheck source=scripts/setup_claude.sh
+source "$DOTFILES_DIR/scripts/setup_claude.sh"

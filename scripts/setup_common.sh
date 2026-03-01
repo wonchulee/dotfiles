@@ -53,6 +53,10 @@ setup_tools() {
     log_info "starship already installed"
   fi
 
+  # Claude Code
+  install_claude_code
+  setup_claude_plugins
+
   # git config
   log_info "Setting git config..."
   git config --global core.editor vim
