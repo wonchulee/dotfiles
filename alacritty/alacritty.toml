@@ -23,15 +23,15 @@ background = "0x2E3440"
 foreground = "0xD8DEE9"
 
 [font.bold]
-family = "IBM Plex Mono"
+family = "BlexMono Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "IBM Plex Mono"
+family = "BlexMono Nerd Font"
 style = "Medium Italic"
 
 [font.normal]
-family = "IBM Plex Mono"
+family = "BlexMono Nerd Font"
 style = "Medium"
 
 [[keyboard.bindings]]

@@ -13,13 +13,24 @@ setup_packages() {
     eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
 
-  local packages=(fish shellcheck shfmt jq aspell go bat eza ripgrep)
+  local packages=(fish shellcheck shfmt jq aspell go bat eza ripgrep neovim fd lazygit)
   for pkg in "${packages[@]}"; do
     if brew list "$pkg" &>/dev/null; then
       log_info "brew: $pkg already installed"
     else
       log_info "brew: installing $pkg..."
       brew install "$pkg"
+    fi
+  done
+
+  # casks (fonts)
+  local casks=(font-blex-mono-nerd-font)
+  for cask in "${casks[@]}"; do
+    if brew list --cask "$cask" &>/dev/null; then
+      log_info "brew cask: $cask already installed"
+    else
+      log_info "brew cask: installing $cask..."
+      brew install --cask "$cask"
     fi
   done
 

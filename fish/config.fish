@@ -7,7 +7,9 @@ alias tf='terraform'
 alias k='kubectl'
 
 # -- common environment ----------------------------------------------------
-set -gx EDITOR vim
+set -gx EDITOR nvim
+alias vim='nvim'
+alias vi='nvim'
 
 set -gx NPM_PACKAGES_BIN $HOME/.npm-packages/bin
 set -gx PATH $HOME/.local/bin $NPM_PACKAGES_BIN $HOME/.cargo/bin $HOME/go/bin $PATH
