@@ -126,3 +126,6 @@ set undodir=/tmp//
 
 " airline theme
 let g:airline_theme='silver'
+
+set clipboard+=unnamed
+
