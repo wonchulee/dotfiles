@@ -29,6 +29,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.yaml" },
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.markdown" },
+    -- DAP (Debug Adapter Protocol)
+    { import = "lazyvim.plugins.extras.dap.core" },
     -- User plugins
     { import = "plugins" },
   },
