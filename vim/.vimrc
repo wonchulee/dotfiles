@@ -11,9 +11,6 @@ Plug 'junegunn/vim-easy-align'
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
-" Multiple Plug commands can be written in a single line using | separators
-"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -36,20 +33,6 @@ Plug 'junegunn/vim-journal'
 
 " colorscheme
 Plug 'dracula/vim'
-
-" LSP symbols/tags viewer
-" Plug 'liuchengxu/vista.vim'
-" tag plugin
-" Plug 'ludovicchabant/vim-gutentags'
-" let g:gutentags_ctags_exclude = ['oe-workdir', 'oe-logs', 'build']
-
-" python
-" Plug 'direnv/direnv.vim'
-" Plug 'nvie/vim-flake8'
-" Plug 'vim-scripts/indentpython.vim'
-
-" Plug 'mattn/webapi-vim'
-" Plug 'mattn/gist-vim'
 
 " Initialize plugin system
 call plug#end()
@@ -102,17 +85,6 @@ inoremap ;lkj <Esc>:wq<CR>
 set list
 set listchars=tab:!·,trail:·
 
-""ultisnips
-"let g:UltiSnipsExpandTrigger="<Tab>"
-"let g:UltiSnipsJumpForwardTrigger="<Tab>"
-"let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-"let g:UltiSnipsEditSplit="vertical"
-"" let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips']
-"let g:UltiSnipsSnippetDirectories = ['UltiSnips']
-
-" run python
-nnoremap <buffer> <F9> :w<CR>:!clear;python3 %:p<cr>
-
 " fzf key settings
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
@@ -128,4 +100,3 @@ set undodir=/tmp//
 let g:airline_theme='silver'
 
 set clipboard+=unnamed
-

@@ -1,48 +1,58 @@
-#!/bin/sh
+#!/usr/bin/env bash
+# install.sh — dotfiles entry point
+# Usage: ./install.sh [--all|--symlinks|--packages|--tools]
 
-ln -s `pwd`/.vimrc $HOME/.vimrc
-ln -s `pwd`/.tmux.conf $HOME/.tmux.conf
-ln -s `pwd`/.config/fish/config.fish $HOME/.config/fish/config.fish
-ln -s `pwd`/.doom.d $HOME/.doom.d
+set -euo pipefail
 
-mkdir -p ~/.local/share/applications
-ln -s `pwd`/.local/share/applications/alacritty.desktop ~/.local/share/applications/alacritty.desktop
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# vim plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# shellcheck source=scripts/utils.sh
+source "$DOTFILES_DIR/scripts/utils.sh"
+# shellcheck source=scripts/setup_common.sh
+source "$DOTFILES_DIR/scripts/setup_common.sh"
 
-# tmux
-## tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+OS="$(detect_os)"
+log_info "Detected OS: $OS"
 
-# alacritty config
-mkdir -p ~/.config/alacritty
-ln -s `pwd`/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+case "$OS" in
+  macos)
+    # shellcheck source=scripts/setup_macos.sh
+    source "$DOTFILES_DIR/scripts/setup_macos.sh"
+    ;;
+  fedora)
+    # shellcheck source=scripts/setup_fedora.sh
+    source "$DOTFILES_DIR/scripts/setup_fedora.sh"
+    ;;
+  *)
+    log_error "Unsupported OS: $OS"
+    exit 1
+    ;;
+esac
 
-# environment variable for applications
-# mkdir -p ~/.config/environment.d/
-# ln -s `pwd`/.config/environment.d/envvars.conf ~/.config/environment.d/envvars.conf
+MODE="${1:---all}"
 
-# install packages
-sudo dnf groupinstall "Development Tools" "Development Libraries"
-sudo dnf install cmake fontconfig-devel nodejs fish emacs
+case "$MODE" in
+  --symlinks)
+    setup_symlinks
+    [ "$OS" = "fedora" ] && setup_symlinks_fedora
+    ;;
+  --packages)
+    setup_packages
+    ;;
+  --tools)
+    setup_tools
+    ;;
+  --all)
+    setup_symlinks
+    [ "$OS" = "fedora" ] && setup_symlinks_fedora
+    setup_packages
+    setup_tools
+    ;;
+  *)
+    log_error "Unknown mode: $MODE"
+    echo "Usage: $0 [--all|--symlinks|--packages|--tools]"
+    exit 1
+    ;;
+esac
 
-# install gstreamer packages
-sudo dnf install gstreamer1-devel gstreamer1-plugins-base-tools gstreamer1-plugins-base-devel gstreamer1-plugins-good gstreamer1-plugins-good-extras gstreamer1-plugins-ugly  gstreamer1-plugins-bad-free gstreamer1-plugins-bad-free-devel gstreamer1-plugins-bad-free-extras
-
-# install rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# install rust pacakges
-cargo install exa ripgrep aracritty
-
-# install starship rs
-curl -fsSL https://starship.rs/install.sh | bash
-
-# git
-git config --global core.editor vim
-
-# install doom emacs
-git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-~/.emacs.d/bin/doom install
+log_info "Done!"
