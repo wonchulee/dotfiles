@@ -34,8 +34,15 @@ setup_claude_plugins() {
 
   log_info "=== Installing Claude Code plugins ==="
 
+  local installed
+  installed=$(claude plugin list 2>/dev/null || true)
+
   for plugin in "${CLAUDE_PLUGINS[@]}"; do
-    log_info "Installing plugin: $plugin"
-    claude plugin add "$plugin" 2>/dev/null || log_warn "Failed to install plugin: $plugin (may need auth)"
+    if echo "$installed" | grep -q "$plugin"; then
+      log_info "Plugin already installed: $plugin"
+    else
+      log_info "Installing plugin: $plugin"
+      claude plugin add "$plugin" 2>/dev/null || log_warn "Failed to install plugin: $plugin (may need auth)"
+    fi
   done
 }
