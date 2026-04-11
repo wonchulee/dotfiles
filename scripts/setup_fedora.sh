@@ -26,7 +26,7 @@ setup_packages() {
 
   # cargo packages
   if has_command cargo; then
-    local cargo_pkgs=(eza ripgrep alacritty)
+    local cargo_pkgs=(eza ripgrep alacritty sccache)
     for pkg in "${cargo_pkgs[@]}"; do
       if has_command "$pkg" || cargo install --list | grep -q "^${pkg} "; then
         log_info "cargo: $pkg already installed"

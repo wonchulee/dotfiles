@@ -14,6 +14,7 @@ setup_symlinks() {
   ensure_symlink "$DOTFILES_DIR/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
   ensure_symlink "$DOTFILES_DIR/bash/.bashrc"            "$HOME/.bashrc"
   ensure_symlink "$DOTFILES_DIR/nvim"                    "$HOME/.config/nvim"
+  ensure_symlink "$DOTFILES_DIR/cargo/config.toml"       "$HOME/.cargo/config.toml"
 }
 
 # -- tools -----------------------------------------------------------------

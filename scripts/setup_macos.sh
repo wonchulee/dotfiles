@@ -13,7 +13,7 @@ setup_packages() {
     eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
 
-  local packages=(fish shellcheck shfmt jq aspell go bat eza ripgrep neovim fd lazygit)
+  local packages=(fish shellcheck shfmt jq aspell go bat eza ripgrep neovim fd lazygit sccache)
   for pkg in "${packages[@]}"; do
     if brew list "$pkg" &>/dev/null; then
       log_info "brew: $pkg already installed"
