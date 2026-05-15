@@ -39,6 +39,9 @@ switch (uname)
             end
         end
 
+        set -gx LD_LIBRARY_PATH $HOME/.local/lib64 $HOME/.local/lib $LD_LIBRARY_PATH
+        set -gx PKG_CONFIG_PATH $HOME/.local/lib64/pkgconfig $HOME/.local/lib/pkgconfig $PKG_CONFIG_PATH
+
         set -gx GST_PLUGIN_PATH_1_0 /opt/homebrew/lib/gstreamer-1.0/
 
         # Docker Desktop
@@ -51,6 +54,9 @@ switch (uname)
 
         # iTerm2 shell integration
         test -e $HOME/.iterm2_shell_integration.fish; and source $HOME/.iterm2_shell_integration.fish; or true
+
+        ## java
+        set -gx JAVA_HOME /Users/wonchul/Library/Java/JavaVirtualMachines/azul-21.0.7/Contents/Home
 
     case Linux
         set -gx GTK_IM_MODULE ibus
@@ -67,3 +73,15 @@ end
 # volta
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+set --export --prepend PATH "/Users/wonchul/.rd/bin"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+# pi-coding-agent: tmux 안에서도 OSC 8 하이퍼링크 활성화 (iTerm2 ⌘+클릭)
+# 조건: ~/.tmux.conf 에 `allow-passthrough on` + `terminal-features *:hyperlinks` 설정 필요
+set -gx PI_FORCE_HYPERLINKS 1
