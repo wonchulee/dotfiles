@@ -9,6 +9,44 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source "$DOTFILES_DIR/scripts/setup_claude.sh"
 
 # -- symlinks --------------------------------------------------------------
+is_lazyvim_configured() {
+  local lazy_config="$HOME/.config/nvim/lua/config/lazy.lua"
+
+  [ -f "$lazy_config" ] && grep -q 'LazyVim/LazyVim' "$lazy_config"
+}
+
+backup_if_exists() {
+  local path="$1"
+
+  if [ -e "$path" ] || [ -L "$path" ]; then
+    local backup="${path}.bak"
+    if [ -e "$backup" ] || [ -L "$backup" ]; then
+      backup="${path}.bak.$(date +%Y%m%d%H%M%S)"
+    fi
+
+    log_warn "backing up $path -> $backup"
+    mv "$path" "$backup"
+  fi
+}
+
+setup_lazyvim() {
+  log_info "=== Configuring LazyVim ==="
+
+  if is_lazyvim_configured; then
+    log_info "LazyVim already configured"
+    return
+  fi
+
+  # Follow LazyVim's installation guidance: back up any existing Neovim
+  # config/data/state/cache before installing a LazyVim-based config.
+  backup_if_exists "$HOME/.config/nvim"
+  backup_if_exists "$HOME/.local/share/nvim"
+  backup_if_exists "$HOME/.local/state/nvim"
+  backup_if_exists "$HOME/.cache/nvim"
+
+  ensure_symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+}
+
 setup_symlinks() {
   log_info "=== Creating symlinks ==="
 
@@ -16,7 +54,7 @@ setup_symlinks() {
   ensure_symlink "$DOTFILES_DIR/fish/config.fish"        "$HOME/.config/fish/config.fish"
   ensure_symlink "$DOTFILES_DIR/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
   ensure_symlink "$DOTFILES_DIR/bash/.bashrc"            "$HOME/.bashrc"
-  ensure_symlink "$DOTFILES_DIR/nvim"                    "$HOME/.config/nvim"
+  setup_lazyvim
   ensure_symlink "$DOTFILES_DIR/cargo/config.toml"       "$HOME/.cargo/config.toml"
 }
 

@@ -44,8 +44,15 @@ ensure_symlink() {
   local src="$1"
   local target="$2"
 
-  # create parent directory
-  mkdir -p "$(dirname "$target")"
+  # create parent directory, but do not fail the whole install if a
+  # non-directory already exists at the parent path.
+  local parent
+  parent="$(dirname "$target")"
+  if { [ -e "$parent" ] || [ -L "$parent" ]; } && [ ! -d "$parent" ]; then
+    log_warn "skipping symlink; parent path exists and is not a directory: $parent"
+    return 0
+  fi
+  mkdir -p "$parent"
 
   # already correct
   if [ -L "$target" ] && [ "$(readlink "$target")" = "$src" ]; then

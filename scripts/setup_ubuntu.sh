@@ -18,6 +18,7 @@ setup_packages() {
     cmake \
     curl \
     fish \
+    fzf \
     git \
     jq \
     libfontconfig1-dev \
