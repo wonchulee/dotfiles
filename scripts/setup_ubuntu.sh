@@ -22,7 +22,6 @@ setup_packages() {
     git \
     jq \
     libfontconfig1-dev \
-    neovim \
     pkg-config \
     shellcheck \
     shfmt \
@@ -36,6 +35,7 @@ setup_packages() {
     libxkbcommon-dev \
     python3
 
+  install_neovim_linux
   install_node_with_volta
   install_cargo_packages
   install_go_packages

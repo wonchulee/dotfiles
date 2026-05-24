@@ -75,6 +75,33 @@ load_go_env() {
   export PATH="$HOME/.local/go/bin:$HOME/go/bin:$PATH"
 }
 
+install_neovim_linux() {
+  if [ "$(uname -s)" != "Linux" ]; then
+    log_warn "Neovim tarball install is only supported on Linux"
+    return 0
+  fi
+
+  if [ "$(uname -m)" != "x86_64" ]; then
+    log_error "Unsupported Neovim tarball architecture: $(uname -m)"
+    return 1
+  fi
+
+  local archive install_dir tmpdir url
+  archive="nvim-linux-x86_64.tar.gz"
+  install_dir="/opt/nvim-linux-x86_64"
+  url="https://github.com/neovim/neovim/releases/latest/download/${archive}"
+  tmpdir="$(mktemp -d)"
+
+  log_info "Installing latest Neovim to ${install_dir}..."
+  (
+    cd "$tmpdir"
+    curl -LO "$url"
+  )
+  sudo rm -rf "$install_dir"
+  sudo tar -C /opt -xzf "$tmpdir/$archive"
+  rm -rf "$tmpdir"
+}
+
 ensure_go() {
   load_go_env
 

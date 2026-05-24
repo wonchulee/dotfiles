@@ -12,7 +12,10 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export EDITOR=nvim
 
 # alias
 alias g='grep -IErn'
-alias vi='vimx'
+alias vim='nvim'
+alias vi='nvim'

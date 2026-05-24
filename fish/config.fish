@@ -60,6 +60,7 @@ switch (uname)
 
     case Linux
         set -gx GTK_IM_MODULE ibus
+        set -gx PATH $PATH /opt/nvim-linux-x86_64/bin
         set -gx LD_LIBRARY_PATH $HOME/.local/lib64 $HOME/.local/lib $LD_LIBRARY_PATH
         set -gx PKG_CONFIG_PATH $HOME/.local/lib64/pkgconfig $HOME/.local/lib/pkgconfig $PKG_CONFIG_PATH
 end

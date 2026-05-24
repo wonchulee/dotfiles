@@ -10,7 +10,9 @@ setup_packages() {
   log_info "=== Installing Fedora packages ==="
 
   sudo dnf groupinstall -y "Development Tools" "Development Libraries"
-  sudo dnf install -y cmake fontconfig-devel nodejs fish fzf
+  sudo dnf install -y cmake curl fontconfig-devel nodejs fish fzf
+
+  install_neovim_linux
 
   # gstreamer
   sudo dnf install -y \
