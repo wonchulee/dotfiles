@@ -4,7 +4,7 @@ dotfiles 설치 / 재설정 헬퍼 모음.
 
 | 스크립트 | 설명 |
 |---|---|
-| `setup_macos.sh` / `setup_fedora.sh` | OS별 패키지 설치 진입점 |
+| `setup_macos.sh` / `setup_fedora.sh` / `setup_ubuntu.sh` | OS별 패키지 설치 진입점 |
 | `setup_common.sh` | OS 공통 설치 |
 | `setup_claude.sh` | Claude Code 설치 + 플러그인 |
 | `setup_pi.sh` | pi-coding-agent 로컬 패치 (tmux 안에서 OSC 8 클릭 가능 링크 활성화) |

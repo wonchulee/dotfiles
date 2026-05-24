@@ -23,6 +23,10 @@ case "$OS" in
     # shellcheck source=scripts/setup_fedora.sh
     source "$DOTFILES_DIR/scripts/setup_fedora.sh"
     ;;
+  ubuntu)
+    # shellcheck source=scripts/setup_ubuntu.sh
+    source "$DOTFILES_DIR/scripts/setup_ubuntu.sh"
+    ;;
   *)
     log_error "Unsupported OS: $OS"
     exit 1
@@ -34,7 +38,10 @@ MODE="${1:---all}"
 case "$MODE" in
   --symlinks)
     setup_symlinks
-    [ "$OS" = "fedora" ] && setup_symlinks_fedora
+    case "$OS" in
+      fedora) setup_symlinks_fedora ;;
+      ubuntu) setup_symlinks_ubuntu ;;
+    esac
     ;;
   --packages)
     setup_packages
@@ -44,7 +51,10 @@ case "$MODE" in
     ;;
   --all)
     setup_symlinks
-    [ "$OS" = "fedora" ] && setup_symlinks_fedora
+    case "$OS" in
+      fedora) setup_symlinks_fedora ;;
+      ubuntu) setup_symlinks_ubuntu ;;
+    esac
     setup_packages
     setup_tools
     ;;

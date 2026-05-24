@@ -12,7 +12,7 @@ alias vim='nvim'
 alias vi='nvim'
 
 set -gx NPM_PACKAGES_BIN $HOME/.npm-packages/bin
-set -gx PATH $HOME/.local/bin $NPM_PACKAGES_BIN $HOME/.cargo/bin $HOME/go/bin $PATH
+set -gx PATH $HOME/.local/bin $HOME/.local/go/bin $NPM_PACKAGES_BIN $HOME/.cargo/bin $HOME/go/bin $PATH
 set -gx MANPATH $MANPATH $HOME/.npm-packages/share/man
 
 # -- OS-specific -----------------------------------------------------------

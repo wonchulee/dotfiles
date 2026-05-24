@@ -20,6 +20,8 @@ detect_os() {
     Linux)
       if [ -f /etc/fedora-release ]; then
         echo "fedora"
+      elif [ -f /etc/os-release ] && grep -qi '^ID=ubuntu' /etc/os-release; then
+        echo "ubuntu"
       else
         echo "linux"
       fi
