@@ -285,7 +285,7 @@ setup_tools() {
 
   # Claude Code
   install_claude_code
-  setup_claude_plugins
+  print_claude_plugins_hint
 
   # git config
   log_info "Setting git config..."

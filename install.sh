@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # install.sh — dotfiles entry point
-# Usage: ./install.sh [--all|--symlinks|--packages|--tools]
+# Usage: ./install.sh [--all|--symlinks|--packages|--tools|--claude-plugins]
 
 set -euo pipefail
 
@@ -49,6 +49,9 @@ case "$MODE" in
   --tools)
     setup_tools
     ;;
+  --claude-plugins)
+    setup_claude_plugins
+    ;;
   --all)
     setup_symlinks
     case "$OS" in
@@ -60,7 +63,7 @@ case "$MODE" in
     ;;
   *)
     log_error "Unknown mode: $MODE"
-    echo "Usage: $0 [--all|--symlinks|--packages|--tools]"
+    echo "Usage: $0 [--all|--symlinks|--packages|--tools|--claude-plugins]"
     exit 1
     ;;
 esac

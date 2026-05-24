@@ -25,6 +25,12 @@ install_claude_code() {
   curl -fsSL https://claude.ai/install.sh | sh
 }
 
+# -- plugin guidance ------------------------------------------------------
+print_claude_plugins_hint() {
+  log_info "Claude Code plugins are not installed by default."
+  log_info "To install recommended plugins, run: ./install.sh --claude-plugins"
+}
+
 # -- install plugins -------------------------------------------------------
 setup_claude_plugins() {
   if ! has_command claude; then
