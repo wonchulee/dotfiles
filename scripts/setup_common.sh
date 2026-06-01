@@ -52,6 +52,7 @@ setup_symlinks() {
 
   ensure_symlink "$DOTFILES_DIR/tmux/.tmux.conf"         "$HOME/.tmux.conf"
   ensure_symlink "$DOTFILES_DIR/fish/config.fish"        "$HOME/.config/fish/config.fish"
+  ensure_symlink "$DOTFILES_DIR/fish/fish_plugins"       "$HOME/.config/fish/fish_plugins"
   ensure_symlink "$DOTFILES_DIR/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
   ensure_symlink "$DOTFILES_DIR/bash/.bashrc"            "$HOME/.bashrc"
   setup_lazyvim

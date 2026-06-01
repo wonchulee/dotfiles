@@ -44,9 +44,6 @@ switch (uname)
 
         set -gx GST_PLUGIN_PATH_1_0 /opt/homebrew/lib/gstreamer-1.0/
 
-        # Docker Desktop
-        test -f $HOME/.docker/init-fish.sh; and source $HOME/.docker/init-fish.sh; or true
-
         # Rancher Desktop
         if test -d "$HOME/.rd/bin"
             set --export --prepend PATH "$HOME/.rd/bin"
@@ -63,6 +60,14 @@ switch (uname)
         set -gx PATH $PATH /opt/nvim-linux-x86_64/bin
         set -gx LD_LIBRARY_PATH $HOME/.local/lib64 $HOME/.local/lib $LD_LIBRARY_PATH
         set -gx PKG_CONFIG_PATH $HOME/.local/lib64/pkgconfig $HOME/.local/lib/pkgconfig $PKG_CONFIG_PATH
+end
+
+# -- fisher plugin manager -------------------------------------------------
+# Bootstrap Fisher on first interactive shell, then install plugins declared
+# in ~/.config/fish/fish_plugins (for example: edc/bass).
+if status is-interactive; and not functions -q fisher; and command -q curl
+    curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source
+    functions -q fisher; and fisher update
 end
 
 # -- shared tools (after OS PATH setup) ------------------------------------
