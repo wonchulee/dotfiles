@@ -91,3 +91,4 @@ set --export PATH $BUN_INSTALL/bin $PATH
 # pi-coding-agent: tmux 안에서도 OSC 8 하이퍼링크 활성화 (iTerm2 ⌘+클릭)
 # 조건: ~/.tmux.conf 에 `allow-passthrough on` + `terminal-features *:hyperlinks` 설정 필요
 set -gx PI_FORCE_HYPERLINKS 1
+set -gx PLANNOTATOR_SHARE disabled
